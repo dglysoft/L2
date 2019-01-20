@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <p><input type="text" v-model="message"></p>
+            <p>                
+                <button v-on:click="greet">Greet</button>	<!--click事件直接绑定一个方法-->
+            </p>
+            <p>               
+                <button v-on:click="say('Hi')">Hi</button> 	<!--click事件使用内联语句-->
+            </p>
+        </div>
+    </body>
+    <script src="./vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, Vue.js!'
+            },
+            
+            methods: {						//在`methods`对象中定义方法
+                greet: function() {                    
+                    alert(this.message)		//方法内`this` 指向vm
+                },
+                say: function(msg) {
+                    alert(msg)
+                }
+            }
+        })
+    </script>
+</html>
